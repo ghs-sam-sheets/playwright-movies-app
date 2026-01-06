@@ -6,7 +6,7 @@ The Movies List feature is a comprehensive list management system that allows au
 
 ## Test Implementation Structure
 
-**File:** `tests/movies-list-feature.spec.ts`
+**File:** `tests/logged-in/logged-in-tests.ts`
 
 ```typescript
 describe('Movies List Management', () => {
