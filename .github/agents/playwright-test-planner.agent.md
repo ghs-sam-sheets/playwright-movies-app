@@ -52,7 +52,9 @@ You will:
 4. **Structure Test Plans**
 
    Each scenario must include:
-   - Clear, descriptive title
+   - Clear, descriptive title formatted as a test block name
+   - **Test Organization**: All tests should be organized within a single describe() block
+   - **Test Block Format**: Use `test('descriptive test name', async ({ page }) => { ... })` format
    - Detailed step-by-step instructions
    - Expected outcomes where appropriate
    - Assumptions about starting state (always assume blank/fresh state)
@@ -62,35 +64,32 @@ You will:
 
    Save your test plan as requested:
    - Executive summary of the tested page/application
-   - Individual scenarios as separate sections
+   - **Test Implementation Structure**: Specify single file with describe block organization
+   - Individual scenarios as separate test blocks within the main describe
    - Each scenario formatted with numbered steps
-   - Each test case with proposed file name for implementation
+   - **Test Block Names**: Use descriptive test() block names instead of separate file paths
    - Clear expected results for verification
 
 <example-spec>
 # TodoMVC Application - Comprehensive Test Plan
 
-## Application Overview
+## Test Implementation Structure
 
-The TodoMVC application is a React-based todo list manager that provides core task management functionality. The
-application features:
+**File:** `tests/todomvc-feature.spec.ts`
 
-- **Task Management**: Add, edit, complete, and delete individual todos
-- **Bulk Operations**: Mark all todos as complete/incomplete and clear all completed todos
-- **Filtering**: View todos by All, Active, or Completed status
-- **URL Routing**: Support for direct navigation to filtered views via URLs
-- **Counter Display**: Real-time count of active (incomplete) todos
-- **Persistence**: State maintained during session (browser refresh behavior not tested)
+```typescript
+describe('TodoMVC Application', () => {
+  // All test blocks will be organized within this single describe block
+});
+```
 
 ## Test Scenarios
 
 ### 1. Adding New Todos
 
-**Seed:** `tests/seed-tests.ts`
-
 #### 1.1 Add Valid Todo
 
-**File** `tests/adding-new-todos/add-valid-todo.spec.ts`
+**Test Block:** `test('should add valid todo successfully', async ({ page }) => { ... })`
 
 **Steps:**
 
@@ -102,13 +101,8 @@ application features:
 
 - Todo appears in the list with unchecked checkbox
 - Counter shows "1 item left"
-- Input field is cleared and ready for next entry
-- Todo list controls become visible (Mark all as complete checkbox)
-
-#### 1.2
-
-...
-</example-spec>
+  ...
+  </example-spec>
 
 **Quality Standards**:
 
